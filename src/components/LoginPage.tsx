@@ -1,4 +1,5 @@
 // import React from 'react'
+// import Game from './Game'
 import './light.css'
 // import './light.js' 
 
@@ -51,7 +52,7 @@ function LoginPage() {
                     </div>
                 </form>
             </div>
-            <a href='./Game.jsx'>click</a>
+            <a href='./Game.jsx'>click me</a>
         </div>
         <script src='./light.js'></script>
     </div>
