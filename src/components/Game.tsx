@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../index.css";
+import { media } from './theme'
 import styled from "styled-components";
 import MultiInput from './inputs'
 
@@ -8,7 +9,7 @@ const Apps = () => {
 const [numbers, setNumbers] = useState({ num1: 0 ,num2: 0, num3: 0, num4: 0, num5: 0 });
 
 const generateRandomNumber = () : number => {
-return Math.floor(Math.random() * 50 *10)
+return Math.floor(Math.random() * 50 *10) +1
 };
 
 
@@ -63,6 +64,10 @@ font-size: 1.5rem;
 font-weight: 700;
 text-align: center;
 margin-bottom: 15px;
+background-color: black;
+}
+input:focus{
+border: 1px solid #0ef;
 }
 h1{
 font-size: 3rem;
@@ -96,8 +101,8 @@ border-radius: 10px;
 }
 button{
 height: 3rem;
-width: 6rem
-transition: all 0.5s ease-in-out;
+min-width: 7rem;
+transition: all 0.15s cubic-bezier(0.63,-0.04, 0.24, 0.93);
 border: 1px solid black;
 border-radius: 10px;
 background-color: #fff;
@@ -107,10 +112,23 @@ font-weight: 700;
 cursor: pointer;
 }
 button:hover{
-// background-color: #000;
-// color: #fff;
-box-shadow: #ffffff 0px 30px 60px -12px , #ffffff 0px 18px 36px -18px;
+box-shadow:rgb(255, 255, 255) 0px 10px 20px -5px ,rgb(255, 255, 255) 0px 3px 8px -3px;
 }
+button:active{
+box-shadow:rgb(0, 0, 0) 0px 20px 40px -6px inset ,rgb(0, 0, 0) 0px 9px 18px -9px inset;
+}
+
+  ${media.md`
+ h1{
+font-size: 2rem;
+font-weight: 500;
+text-align: center;
+margin-bottom: 10px;
+}
+
+
+  `}
+
 
 
 `
