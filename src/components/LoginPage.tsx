@@ -1,9 +1,23 @@
 // import React from 'react'
 // import Game from './Game'
-import './light.css'
+import Game from './Game';
+import './LoginPage.css'
 // import './light.js' 
 
 function LoginPage() {
+    const signUpBtnLink = document.querySelector('.signUpBtn-link');
+    const wrapper = document.querySelector('.wrapper');
+    const signInBtnLink= document.querySelector('.signInBtn-link');
+
+   
+        signUpBtnLink?.addEventListener('click', () =>{
+            wrapper?.classList.toggle('active');
+        })
+        signInBtnLink?.addEventListener('click', () =>{
+            wrapper?.classList.toggle('active');
+        })
+
+
   return (
     <div>
       <div className="wrapper">
@@ -19,11 +33,11 @@ function LoginPage() {
                         <label>Password</label>
                     </div>
                     <div className="remember">
-                        <label><input type="checkbox" className="rem"/>Remember me</label>
+                        <label><input type="checkbox" className="rem"/> Remember me</label>
                     </div>
                     <button type="submit">Login</button>
                     <div className="signUp-link">
-                        <p>Don't have an account? <a href="#" className="signUpBtn-link">Sign Up</a></p>
+                        <p>Don't have an account? <a className="signUpBtn-link" onClick={signUpBtnLink}>Sign Up</a></p>
                     </div>
                 </form>
             </div>
@@ -44,17 +58,15 @@ function LoginPage() {
                         <label >Password</label>
                     </div>
                     <div className="remember">
-                        <label><input type="checkbox" className="rem"/>I agree to the terms & conditions</label>
+                        <label><input type="checkbox" className="rem"/> I agree to the terms & conditions</label>
                     </div>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit" onClick={Game}>Sign Up</button>
                     <div className="signUp-link">
-                        <p>Already have an account? <a href="#" className="signInBtn-link">Sign In</a></p>
+                        <p>Already have an account? <a className="signInBtn-link" onClick={signInBtnLink}>Sign In</a></p>
                     </div>
                 </form>
             </div>
-            <a href='./Game.jsx'>click me</a>
         </div>
-        <script src='./light.js'></script>
     </div>
   )
 }

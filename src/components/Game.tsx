@@ -5,7 +5,7 @@ import styled from "styled-components";
 import MultiInput from './inputs'
 
 
-const Apps = () => {
+const Game = () => {
 const [numbers, setNumbers] = useState({ num1: 0 ,num2: 0, num3: 0, num4: 0, num5: 0 });
 
 const generateRandomNumber = () : number => {
@@ -27,7 +27,7 @@ num5: generateRandomNumber(),
 
 
 return (
-<AppWrapper>
+<GameWrapper>
 <h1>Random Number Generator</h1>
 
 <h5>Enter any 3 numbers of your choice, then press play</h5>
@@ -46,11 +46,11 @@ Play Game
 </button>
 </Generator>
 
-</AppWrapper>
+</GameWrapper>
 );
 };
 
-const AppWrapper = styled.div`
+const GameWrapper = styled.div`
 div{
 display: flex;
 justify-content: space-evenly;
@@ -136,14 +136,4 @@ const Generator = styled.div`
 display: flex;
 justify-content: space-evenly;
 `
-// const Human = styled.div`
-// display: flex;
-// justify-content: space-evenly;
-// `
-
-
-
-export default Apps;
-
-
-// export default App
+export default Game;

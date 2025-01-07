@@ -1,4 +1,3 @@
-@import url('http://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&diplay=swap');
 *{
     margin: 0;
     padding: 0;
@@ -19,13 +18,14 @@ body{
     width: 400px;
     height: 500px;
     background: #000;
-    box-shadow: 0 0 50px #0ef;
+    /* box-shadow: 0 0 10px #ffbcff; */
     border-radius: 20px;
+    border: 2px solid #0ef;
     padding: 40px;
     overflow: hidden;
 }
 
-.wrapper:hover{
+/* .wrapper:hover{
     animation: animate 1s linear infinite;
 }
 
@@ -33,7 +33,7 @@ body{
     100%{
         filter: hue-rotate(360deg);
     }
-}
+} */
 
 .form-wrapper{
     display: flex;
@@ -90,11 +90,18 @@ h2 {
     background: transparent;
     border: none;
     outline: none;
+    transition: .5s;
 }
 
 .input-group input:focus~label,
 .input-group input:valid~label {
     top: -5px;
+    color: #0ef;
+}
+
+.input-group input:focus,
+.input-group input:valid{
+    border-bottom: 2px solid #0ef;
 }
 
 .remember {
@@ -145,6 +152,7 @@ button:hover{
     color: #0ef;
     text-decoration: none;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .signUp-link p a:hover{
@@ -155,3 +163,5 @@ button:hover{
 .rem{
     cursor: pointer;
 }
+
+
