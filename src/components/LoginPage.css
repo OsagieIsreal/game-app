@@ -23,15 +23,16 @@ body{
     border: 2px solid #0ef;
     padding: 40px;
     overflow: hidden;
+    /* filter: grayscale(50%); */
 }
-
-/* .wrapper:hover{
-    animation: animate 1s linear infinite;
+/* 
+.wrapper:hover{
+    animation: animate 1.5s linear infinite;
 }
 
 @keyframes animate {
     100%{
-        filter: hue-rotate(360deg);
+        filter: hue-rotate(570deg);
     }
 } */
 

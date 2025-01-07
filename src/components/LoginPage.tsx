@@ -1,10 +1,13 @@
-// import React from 'react'
+// import { useState } from 'react'
 // import Game from './Game'
 import Game from './Game';
 import './LoginPage.css'
 // import './light.js' 
 
 function LoginPage() {
+
+    // const [signUp, setSignUp] = useState(true)
+
     const signUpBtnLink = document.querySelector('.signUpBtn-link');
     const wrapper = document.querySelector('.wrapper');
     const signInBtnLink= document.querySelector('.signInBtn-link');
@@ -60,7 +63,7 @@ function LoginPage() {
                     <div className="remember">
                         <label><input type="checkbox" className="rem"/> I agree to the terms & conditions</label>
                     </div>
-                    <button type="submit" onClick={Game}>Sign Up</button>
+                    <button type="submit">Sign Up</button>
                     <div className="signUp-link">
                         <p>Already have an account? <a className="signInBtn-link" onClick={signInBtnLink}>Sign In</a></p>
                     </div>
