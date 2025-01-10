@@ -63,7 +63,7 @@ axiosInstance.post("/users/login", payload)
                     toast.success(`Login sucessfull, Welcome ${payload.username}`)
                     console.log(response, 'sucess')
                     sessionStorage.setItem('user',JSON.stringify(response.data))
-                navigate("/Game-App/game");
+                navigate("/game");
                   })
                   
                   .catch((error)=>{
@@ -80,7 +80,7 @@ axiosInstance.post("/users/login", payload)
                     toast.success('Signup sucessfull')
                     console.log(response, 'sucess')
                     sessionStorage.setItem('user',JSON.stringify(response.data))
-                    navigate("/Game-App/game");
+                    navigate("/game");
                   })
                   
                   .catch((error)=>{

@@ -6,7 +6,7 @@ import Menu from '../components/Menu'
 
 export const appRouter = createBrowserRouter([
   {
-    path: '/Game-app',
+    path: '/',
     element: <Menu />,
     children: [
       {
