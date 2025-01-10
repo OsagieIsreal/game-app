@@ -161,8 +161,37 @@ button:hover{
     font-weight: bolder;
 }
 
+.signIn-link{
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.signIn-link p {
+    color: #fff;
+
+}
+
+.signIn-link p a {
+    color: #0ef;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.signIn-link p a:hover{
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
 .rem{
     cursor: pointer;
 }
 
 
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
