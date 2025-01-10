@@ -5,13 +5,13 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
+/* body{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: #000;
-}
+} */
 
 .wrapper{
     position: relative;

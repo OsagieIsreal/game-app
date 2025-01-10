@@ -1,15 +1,29 @@
 import { useState } from "react";
-import "../index.css";
 import { media } from './theme'
 import styled from "styled-components";
 import MultiInput from './inputs'
 
 
+interface IUser {
+  id: string
+  username: string
+  email: string
+  firstName?: string
+  lastName?: string
+}
+
 const Game = () => {
 const [numbers, setNumbers] = useState({ num1: 0 ,num2: 0, num3: 0, num4: 0, num5: 0 });
+const data = sessionStorage.getItem('user') as string
+
+const user : IUser = JSON.parse(data)
+
+
+
 
 const generateRandomNumber = () : number => {
 return Math.floor(Math.random() * 50 *10) +1
+
 };
 
 
@@ -27,7 +41,11 @@ num5: generateRandomNumber(),
 
 
 return (
+  <>
+  
 <GameWrapper>
+ 
+<p> Welcome {user && user.username ? user.username.toUpperCase() : 'Anonymous Player'}</p>
 <h1>Random Number Generator</h1>
 
 <h5>Enter any 3 numbers of your choice, then press play</h5>
@@ -47,8 +65,11 @@ Play Game
 </Generator>
 
 </GameWrapper>
+</>
 );
 };
+
+
 
 const GameWrapper = styled.div`
 div{

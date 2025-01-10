@@ -1,37 +1,95 @@
 import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup'; // For validation
-import Game from './Game';
+import * as yup from 'yup'; // For validation
+import { useNavigate } from "react-router-dom";
+// import Game from './Game';
 import './LoginPage.css';
+import { toast } from 'react-toastify';
+import { axiosInstance } from '../config/axios.config';
+interface ILoginDetails {
+  username: string
+  password: string
+
+}
+
+interface ISignupDetails {
+  username: string
+  password: string
+  email: string
+
+}
 
 const LoginPage: React.FC = () => {
   const [isSignUp, setIsSignUp] = useState<boolean>(false); // Tracks whether Sign Up form is active
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // Tracks login or signup status
-
+  // const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // Tracks login or signup status
+  const navigate = useNavigate();
   const toggleForm = () => setIsSignUp(!isSignUp);
 
   const initialValuesLogin = { username: '', password: '' };
   const initialValuesSignUp = { username: '', email: '', password: '' };
 
-  const validationSchemaLogin = Yup.object({
-    username: Yup.string().required('Username is required'),
-    password: Yup.string().required('Password is required'),
+  const validationSchemaLogin = yup.object({
+    username: yup.string().required('Username is required').
+    test('username', 'Custom username error', function(username: string) {
+        // Your custom function logic here
+        if (!username) {
+          // You can do any custom validation here
+          toast.error('Please enter your username')
+          // return false;
+        }
+        return true;
+      }),
+    password: yup.string().required('Password is required'),
   });
 
-  const validationSchemaSignUp = Yup.object({
-    username: Yup.string().required('Username is required'),
-    email: Yup.string().email('Invalid email address').required('Email is required'),
-    password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+  const validationSchemaSignUp = yup.object({
+    username: yup.string()
+      .required('Username is required'),
+    
+    email: yup.string()
+      .email('Invalid email address')
+      .required('Email is required')
+     ,
+    password: yup.string()
+      .min(6, 'Password must be at least 6 characters')
+      .required('Password is required')
   });
 
-  const handleSubmit = (values: any) => {
-    console.log('Form values:', values);
-    setIsLoggedIn(true); // Simulate successful login or signup
+  const handleLoginSubmit = (payload: ILoginDetails ) => {
+    console.log('Form values:', payload);
+    // setSubmitting(true)
+axiosInstance.post("/users/login", payload)
+                  .then((response)=>{
+                    toast.success(`Login sucessfull, Welcome ${payload.username}`)
+                    console.log(response, 'sucess')
+                    sessionStorage.setItem('user',JSON.stringify(response.data))
+                navigate("/Game-App/game");
+                  })
+                  
+                  .catch((error)=>{
+                    console.log(error)
+                     toast.error(error.message)
+                  })
+    
+    //  setSubmitting(false)
   };
 
-  if (isLoggedIn) {
-    return <Game />;
-  }
+   const handleSignUpSubmit = (payload: ISignupDetails) => {
+    axiosInstance.post("/users", payload)
+                  .then((response)=>{
+                    toast.success('Signup sucessfull')
+                    console.log(response, 'sucess')
+                    sessionStorage.setItem('user',JSON.stringify(response.data))
+                    navigate("/Game-App/game");
+                  })
+                  
+                  .catch((error)=>{
+                    console.log(error)
+                     toast.error(error.message)
+                  })
+  
+  };
+
 
   return (
     <div className="login-page">
@@ -41,7 +99,7 @@ const LoginPage: React.FC = () => {
           <Formik
             initialValues={initialValuesLogin}
             validationSchema={validationSchemaLogin}
-            onSubmit={handleSubmit}
+            onSubmit={handleLoginSubmit}
           >
             {({ isSubmitting }) => (
               <Form>
@@ -80,7 +138,7 @@ const LoginPage: React.FC = () => {
           <Formik
             initialValues={initialValuesSignUp}
             validationSchema={validationSchemaSignUp}
-            onSubmit={handleSubmit}
+            onSubmit={handleSignUpSubmit}
           >
             {({ isSubmitting }) => (
               <Form>
