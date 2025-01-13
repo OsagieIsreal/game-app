@@ -213,4 +213,4 @@ gap: 2rem;
     transform: scaleY(1);
 }
 
-`,bR=zw([{path:"/",element:J.jsx(TR,{}),children:[{index:!0,element:J.jsx(iy,{})},{path:"login",element:J.jsx(iy,{})},{path:"game",element:J.jsx(wR,{})}]}]);function CR(){return J.jsxs(J.Fragment,{children:[J.jsx($k,{}),J.jsx(Qw,{router:bR})]})}w1.createRoot(document.getElementById("root")).render(J.jsx(N.StrictMode,{children:J.jsx(CR,{})}))});export default RR();
+`,bR=zw([{path:"/Game-App",element:J.jsx(TR,{}),children:[{index:!0,element:J.jsx(iy,{})},{path:"login",element:J.jsx(iy,{})},{path:"game",element:J.jsx(wR,{})}]}]);function CR(){return J.jsxs(J.Fragment,{children:[J.jsx($k,{}),J.jsx(Qw,{router:bR})]})}w1.createRoot(document.getElementById("root")).render(J.jsx(N.StrictMode,{children:J.jsx(CR,{})}))});export default RR();
