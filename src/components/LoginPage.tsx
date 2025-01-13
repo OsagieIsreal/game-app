@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup'; // For validation
 import { useNavigate } from "react-router-dom";
-// import Game from './Game';
 import './LoginPage.css';
 import { toast } from 'react-toastify';
 import { axiosInstance } from '../config/axios.config';
@@ -92,6 +91,7 @@ axiosInstance.post("/users/login", payload)
 
 
   return (
+  <div className='login-page-container'>
     <div className="login-page">
       <div className={`wrapper ${isSignUp ? 'active' : ''}`}>
         {/* Sign In Form */}
@@ -107,10 +107,12 @@ axiosInstance.post("/users/login", payload)
                 <div className="input-group">
                   <Field type="text" name="username" placeholder="Username" />
                   <ErrorMessage name="username" component="div" className="error" />
+                  <label htmlFor="username">Username</label>
                 </div>
                 <div className="input-group">
                   <Field type="password" name="password" placeholder="Password" />
                   <ErrorMessage name="password" component="div" className="error" />
+                  <label htmlFor="password">Password</label>
                 </div>
                 <div className="remember">
                   <label>
@@ -146,14 +148,17 @@ axiosInstance.post("/users/login", payload)
                 <div className="input-group">
                   <Field type="text" name="username" placeholder="Username" />
                   <ErrorMessage name="username" component="div" className="error" />
+                  <label htmlFor="username">Username</label>
                 </div>
                 <div className="input-group">
                   <Field type="email" name="email" placeholder="Email" />
                   <ErrorMessage name="email" component="div" className="error" />
+                  <label htmlFor="email">Email</label>
                 </div>
                 <div className="input-group">
                   <Field type="password" name="password" placeholder="Password" />
                   <ErrorMessage name="password" component="div" className="error" />
+                  <label htmlFor="password">Password</label>
                 </div>
                 <div className="remember">
                   <label>
@@ -178,6 +183,8 @@ axiosInstance.post("/users/login", payload)
         </div>
       </div>
     </div>
+  </div>
+    
   );
 };
 

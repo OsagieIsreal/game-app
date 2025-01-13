@@ -43,77 +43,28 @@ export const maxDevice = {
   xxl: `(max-width: ${screenSize.xxl})`,
 }
 
+const createMediaQuery = (type: 'min' | 'max') => (size: keyof typeof screenSize) => (...args: Parameters<typeof css>) => css`
+  @media (${type}-width: ${screenSize[size]}) {
+    ${css(...args)};
+  }
+`
+
 export const media = {
-  xs: (...args) => css`
-    @media (max-width: ${screenSize.xs}) {
-      ${css(...args)};
-    }
-  `,
-  sm: (...args) => css`
-    @media (max-width: ${screenSize.sm}) {
-      ${css(...args)};
-    }
-  `,
-  md: (...args) => css`
-    @media (max-width: ${screenSize.md}) {
-      ${css(...args)};
-    }
-  `,
-  lt: (...args) => css`
-    @media (max-width: ${screenSize.lt}){
-      ${css(...args)}
-    }`,
-  lg: (...args) => css`
-    @media (max-width: ${screenSize.lg}) {
-      ${css(...args)};
-    }
-  `,
-  xl: (...args) => css`
-    @media (max-width: ${screenSize.xl}) {
-      ${css(...args)};
-    }
-  `,
-  xxl: (...args) => css`
-    @media (max-width: ${screenSize.xxl}) {
-      ${css(...args)};
-    }
-  `,
+  xs: createMediaQuery('max')('xs'),
+  sm: createMediaQuery('max')('sm'),
+  md: createMediaQuery('max')('md'),
+  lt: createMediaQuery('max')('lt'),
+  lg: createMediaQuery('max')('lg'),
+  xl: createMediaQuery('max')('xl'),
+  xxl: createMediaQuery('max')('xxl'),
 }
 
 export const minMedia = {
-  xs: (...args) => css`
-    @media (min-width: ${screenSize.xs}) {
-      ${css(...args)};
-    }
-  `,
-  sm: (...args) => css`
-    @media (min-width: ${screenSize.sm}) {
-      ${css(...args)};
-    }
-  `,
-  md: (...args) => css`
-    @media (min-width: ${screenSize.md}) {
-      ${css(...args)};
-    }
-  `,
-  lt: (...args) => css`
-    @media (min-width: ${screenSize.lt}) {
-      ${css(...args)};
-    }
-  `,
-  lg: (...args) => css`
-    @media (min-width: ${screenSize.lg}) {
-      ${css(...args)};
-    }
-  `,
-  xl: (...args) => css`
-    @media (min-width: ${screenSize.xl}) {
-      ${css(...args)};
-    }
-  `,
-  xxl: (...args) => css`
-    @media (min-width: ${screenSize.xxl}) {
-      ${css(...args)};
-    }
-  `,
+  xs: createMediaQuery('min')('xs'),
+  sm: createMediaQuery('min')('sm'),
+  md: createMediaQuery('min')('md'),
+  lt: createMediaQuery('min')('lt'),
+  lg: createMediaQuery('min')('lg'),
+  xl: createMediaQuery('min')('xl'),
+  xxl: createMediaQuery('min')('xxl'),
 }
