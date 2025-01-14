@@ -52,7 +52,7 @@ return (
 {/* <p> Welcome {user && user.username ? user.username.toUpperCase() : 'Anonymous Player'}</p> */}
 <h1>Random Number Generator</h1>
 
-<h5>Enter any 3 numbers of your choice, then press play</h5>
+<h5>Enter any 1-3 digits numbers of your choice, then press play</h5>
 <MultiInput />
 
 <div>
@@ -76,23 +76,14 @@ Play Game
 
 
 const GameWrapper = styled.div`
-div{
+min-height: 100vh;
+background: url(src/components/images/dice.jpeg) no-repeat;
+background-size: cover;
+background-position: center;
+width:100%;
+div {
 display: flex;
 justify-content: space-evenly;
-}
-input{
-height: 3rem;
-width: 5rem;
-border: 1px solid black;
-border-radius: 10px;
-font-size: 1.5rem;
-font-weight: 700;
-text-align: center;
-margin-bottom: 15px;
-background-color: black;
-}
-input:focus{
-border: 1px solid #0ef;
 }
 h1{
 font-size: 3rem;
@@ -144,7 +135,7 @@ const Generator = styled.div`
 display: flex;
 justify-content: space-evenly;
 `
-const Generate = styled.button`
+const Generate = styled.div`
 height: 3rem;
 padding: 0 2rem;
 background-color: #000;
@@ -167,7 +158,9 @@ border:none;
 `
 const Welcome = styled.div`
 background-color: #000;
-diplay: flex;
-justify-content: left;
+display: block;
+margin-top:20px;
+font-size: 10px;
+font-weight: lighter;
 `
 export default Game;

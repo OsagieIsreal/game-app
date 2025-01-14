@@ -23,7 +23,7 @@ export default function Menu() {
 const Nav = styled.nav`
 display: flex;
 justify-content: center;
-gap: 2rem;
+gap: 1.2rem;
 
 
 
@@ -31,11 +31,14 @@ gap: 2rem;
 
  a{
     position: relative;
-    font-size: 1em;
+    font-size: 1.2em;
     text-decoration: none;
     color: #fff;
     font-weight: 700;
     margin-left: 40px;
+    transition:  .8s cubic-bezier(.32, 2, .55, 27);
+
+    
 }
 
  a::after{
@@ -52,8 +55,12 @@ gap: 2rem;
     transition: transform .8s;
 }
  a:hover::after{
+  background:#0ef;
     transform-origin: left;
     transform: scaleY(1);
 }
+    a:hover{
+    color:red;
+    }
 
 `

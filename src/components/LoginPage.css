@@ -10,20 +10,21 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #000;
+    background: url(./images/dice3.jpeg);
+    background-size: cover;
+    background-position: center;
 }
 
 .wrapper{
     position: relative;
     width: 400px;
     height: 500px;
-    background: #000;
-    /* box-shadow: 0 0 10px #ffbcff; */
+    box-shadow: 0 0 20px #ff2828;
     border-radius: 20px;
     border: 2px solid #0ef;
     padding: 40px;
     overflow: hidden;
-    /* filter: grayscale(50%); */
+    backdrop-filter: blur(70px);
 }
 /* 
 .wrapper:hover{
@@ -42,7 +43,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    transition: 1s ease-in-out;
+    transition: 1s cubic-bezier(0, 0.38, 0.29, 1.39);
 }
 
 .wrapper.active .form-wrapper.sign-in{
@@ -77,6 +78,7 @@ h2 {
     left: 5px;
     transform: translateY(-50%);
     font-size: 16px;
+    font-weight: lighter;
     color: transparent;
     pointer-events: none;
     transition: .5s;

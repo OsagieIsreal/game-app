@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import styled from 'styled-components';
 
 
 const MultiInput: React.FC = () => {
@@ -23,7 +24,7 @@ const MultiInput: React.FC = () => {
   };
 
   return (
-    <div>
+    <Inputs>
       {Array.from({ length: 5 }).map((_, index) => (
         <input
           key={index}
@@ -31,11 +32,11 @@ const MultiInput: React.FC = () => {
           maxLength={3}
           ref={(el) => (inputsRef.current[index] = el)}
           onChange={(e) => handleInputChange(index, e)}
-          style={{ marginRight: '10px', width: '50px', textAlign: 'center' }}
+          style={{ marginRight: '10px', textAlign: 'center' }}
           onInput={validateInputAsNumber}
         />
       ))}
-    </div>
+    </Inputs>
   );
 };
 
@@ -61,4 +62,20 @@ const validateInputAsNumber = (
     }
     }
 
+    const Inputs = styled.div`
+    input{
+    height: 3rem;
+    width: 4rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+    background-color: black;
+    }
+    input:focus{
+    border: 1px solid #0ef;
+    }
+    `
 export default MultiInput;
