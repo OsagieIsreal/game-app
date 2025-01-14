@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/OsagieIsreal/Game-App",
+  "homepage": "https://osagieisreal.github.io/Game-App/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
